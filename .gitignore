@@ -28,3 +28,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Custom linux unity ignores
+/ProjectSettings/ProjectVersion.txt
+/ProjectSettings/NavMeshProjectSettings.asset
+.vscode/
