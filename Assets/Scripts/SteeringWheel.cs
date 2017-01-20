@@ -20,8 +20,10 @@ public class SteeringWheel:MonoBehaviour {
 		}else if (currentRotation < -maxRotation) {
 			currentRotation =  -maxRotation; 
 		}
+		
 		Quaternion originalRot= transform.rotation; 
 		transform.rotation= Quaternion.AngleAxis(currentRotation, Vector3.back); 
+
 		 if (currentRotation > returnToNullForce) {
 			 currentRotation -= returnToNullForce; 
 		 }else if (currentRotation < -returnToNullForce) {
