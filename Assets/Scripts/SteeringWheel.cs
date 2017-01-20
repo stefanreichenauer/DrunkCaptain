@@ -16,15 +16,15 @@ public class SteeringWheel:MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (currentRotation > maxRotation) {
-			currentRotation= maxRotation; 
-		}else if (currentRotation <  -maxRotation) {
-			currentRotation=  -maxRotation; 
+			currentRotation = maxRotation; 
+		}else if (currentRotation < -maxRotation) {
+			currentRotation =  -maxRotation; 
 		}
 		Quaternion originalRot= transform.rotation; 
-		transform.rotation= originalRot * Quaternion.AngleAxis(currentRotation, Vector3.up); 
+		transform.rotation= Quaternion.AngleAxis(currentRotation, Vector3.back); 
 		 if (currentRotation > returnToNullForce) {
 			 currentRotation -= returnToNullForce; 
-		 }else if (currentRotation < returnToNullForce) {
+		 }else if (currentRotation < -returnToNullForce) {
 			currentRotation += returnToNullForce; 
 		 }else {
 			 currentRotation= 0; 

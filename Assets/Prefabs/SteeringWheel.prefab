@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224614726197420026}
   - component: {fileID: 222936886116030780}
   - component: {fileID: 114036669729655970}
+  - component: {fileID: 114794685873896700}
   m_Layer: 5
   m_Name: SteeringWheel
   m_TagString: Untagged
@@ -55,6 +56,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114794685873896700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1804383284709882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73af5340b9b0482e9b510a23274551c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  returnToNullForce: 1
+  rotateSpeed: 5
+  maxRotation: 170
+  currentRotation: 0
 --- !u!222 &222936886116030780
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -76,6 +92,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -113.30003, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
