@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour {
     float shipDirection;
     public GameObject player;
     public Rigidbody2D rigid;
+    public Text winText;
+
 
 	// Use this for initialization
 	void Start () {
@@ -49,4 +52,9 @@ public class PlayerController : MonoBehaviour {
             shipVelocity = 0;
         }
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        winText.gameObject.SetActive(true);
+    }
+
 }
