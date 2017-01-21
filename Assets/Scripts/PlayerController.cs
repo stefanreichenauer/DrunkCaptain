@@ -51,10 +51,26 @@ public class PlayerController : MonoBehaviour {
         {
             shipVelocity = 0;
         }
-    }
+    } 
     void OnTriggerEnter2D(Collider2D other)
     {
-        winText.gameObject.SetActive(true);
+        if(other.tag == "Finish"){
+            winText.gameObject.SetActive(true);
+        }else if(other.tag == "Wave"){
+            other.GetComponent<Wave>().register(this.rigid);
+        }
+    }
+
+    /// <summary>
+    /// Sent when another object leaves a trigger collider attached to
+    /// this object (2D physics only).
+    /// </summary>
+    /// <param name="other">The other Collider2D involved in this collision.</param>
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Wave"){
+            other.GetComponent<Wave>().unregister(this.rigid);
+        }
     }
 
 }
