@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 1072529701}
   - component: {fileID: 1072529700}
   - component: {fileID: 1072529703}
+  - component: {fileID: 1072529704}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: NetworkManager
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1072529699}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 227461547, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
@@ -213,7 +214,7 @@ MonoBehaviour:
   m_NetworkPort: 7777
   m_ServerBindToIP: 0
   m_ServerBindAddress: 
-  m_NetworkAddress: localhost
+  m_NetworkAddress: localhoast
   m_DontDestroyOnLoad: 1
   m_RunInBackground: 1
   m_ScriptCRCCheck: 1
@@ -292,6 +293,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f486b984a26fc4cb6c174847dedd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1072529704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1072529699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a89108530ed2ba44add61ec9fafc9c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectionIP: 127.0.0.1
+  connectionPort: 7777
 --- !u!1 &1094845676
 GameObject:
   m_ObjectHideFlags: 0
