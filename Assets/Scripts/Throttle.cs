@@ -5,16 +5,19 @@ using UnityEngine;
 public class Throttle:MonoBehaviour {
 
 	public float returnToNullForce = 0; 
-	public float maxValue = 100; 
-	public float minValue = -100; 
+	public float maxValue = 25; 
+	public float minValue = -25; 
 	public float changeForce = 5; 
 	public float currentValue = 0; 
 	
-	private Vector2 initialPosition; 
-	// Use this for initialization
-	void Start () {
-		initialPosition = transform.position; 
-	}
+	private Vector2 initialPosition;
+    private Vector3 initialRotation;
+    // Use this for initialization
+    void Start () {
+		initialPosition = transform.position;
+        initialRotation = transform.rotation.eulerAngles;
+
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -23,8 +26,9 @@ public class Throttle:MonoBehaviour {
 		}else if (currentValue <  -maxValue) {
 			currentValue =  -maxValue; 
 		}
-		transform.position = initialPosition +new Vector2(0, currentValue); 
-		if (currentValue > returnToNullForce) {
+		//transform.position = initialPosition +new Vector2(0, currentValue);
+        transform.rotation = Quaternion.Euler(initialRotation + new Vector3(0, 0, currentValue));
+        if (currentValue > returnToNullForce) {
 			currentValue -= returnToNullForce; 
 		}else if (currentValue < -returnToNullForce) {
 			currentValue += returnToNullForce; 
