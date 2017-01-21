@@ -20,7 +20,8 @@ public class CameraController : MonoBehaviour {
 	void LateUpdate () {
 		if(player != null){
 			Rigidbody2D playerRigid = player.GetComponent<Rigidbody2D>();
-			Vector3 dynamicOffset = player.transform.up.normalized * (directionOffset + playerRigid.velocity.magnitude * velocityOffset);
+			Vector3 dynamicOffset = player.transform.up.normalized * (directionOffset);
+			dynamicOffset += new Vector3(playerRigid.velocity.x, playerRigid.velocity.y, 0) * velocityOffset;
 			targetPosition = player.transform.position + offset + dynamicOffset;
 			this.transform.position += (targetPosition - this.transform.position) * lagFactor;
 		}
