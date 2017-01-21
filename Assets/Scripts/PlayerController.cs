@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour {
         //Debug.Log("Vel: " + rigid.angularDrag + " - " + shipDirection);
         
         float newRotation = player.transform.rotation.eulerAngles.z + shipDirection;
-        player.transform.rotation = Quaternion.Euler(0, 0, newRotation);
+        player.transform.rotation = Quaternion.Euler(0, 0, newRotation * rigid.velocity.magnitude * .02f);
         
         if (shipVelocity == 0f && rigid.velocity.magnitude > 0)
         {
@@ -82,12 +82,12 @@ public class PlayerController : MonoBehaviour {
             rigid.AddForce(player.transform.up * shipVelocity);
         }
 
-        //Debug.Log("Vel: " + rigid.velocity.normalized + " - " + player.transform.up + " - " + Vector3.Dot(rigid.velocity.normalized, player.transform.up));
+        Debug.Log("Vel: " + newRotation + " - " + rigid.velocity.magnitude + " - " + Vector3.Dot(rigid.velocity.normalized, player.transform.up));
 
         //cam.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
 
         float compassDirection = Vector3.Angle(Vector3.up,player.transform.position - goal.transform.position);
-        Debug.Log("Vel: " + compassDirection);
+        //Debug.Log("Vel: " + compassDirection);
         compass.transform.rotation = Quaternion.Euler(0,0, compassDirection+180);
     }
 
