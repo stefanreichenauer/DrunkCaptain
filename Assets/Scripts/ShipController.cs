@@ -23,12 +23,14 @@ public class ShipController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
         if (!netPlayer.getIsServer())
         {
             Debug.Log("SetDir: " + Input.GetAxis("Horizontal"));
             netPlayer.setDirection(Input.GetAxis("Horizontal"));
             netPlayer.setSpeed(Input.GetAxis("Vertical"));
         }
+        */
 	}
 
 	public bool isLedTurnedOn(){

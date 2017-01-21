@@ -64,36 +64,23 @@ public class NetworkPlayer : NetworkBehaviour
 
     public void handleInputCmd(float horizontal, float vertical)
     {
-
+        if (!isLocalPlayer)
+        {
+            Debug.Log("set Speed/Direction called as !localPlayer");
+            return;
+        }
+        CmdSetDirection(Input.GetAxis("Horizontal"));
+        CmdSetSpeed(Input.GetAxis("Vertical"));
     }
 
 
     #region controllGameState
 
     //Control of the ship
-    public void setSpeed(float speed)
-    {
-        if (!isLocalPlayer || isServer)
-        {
-            Debug.Log("set Speed called as !localPlayer OR ServerEntity " + isServer);
-            return;
-        }
-        CmdSetSpeed(speed);
-    }
     [Command]
     public void CmdSetSpeed(float speed)
     {
         gameState.GetComponent<GameState>().speed = speed;
-    }
-    public void setDirection(float direction)
-    {
-        if (!isLocalPlayer)
-        {
-            Debug.Log("set Direction called as !localPlayer OR ServerEntity " + isServer);
-            return;
-        }
-        Debug.Log("AFTER IF");
-        CmdSetDirection(direction);
     }
     [Command]
     public void CmdSetDirection(float direction)
