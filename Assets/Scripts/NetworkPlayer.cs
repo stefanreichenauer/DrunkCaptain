@@ -8,10 +8,12 @@ public class NetworkPlayer : NetworkBehaviour
     public GameObject gameState;
     public GameObject helmsmanGUI;
     public GameObject captainGUI;
+    public bool isLocalP;
 
     // Use this for initialization
     void Start()
     {
+        isLocalP = isLocalPlayer;
         if (isServer)
         {
             isServerEntity = true;
@@ -65,11 +67,12 @@ public class NetworkPlayer : NetworkBehaviour
     }
     public void setDirection(float direction)
     {
-        if (!isLocalPlayer || isServerEntity)
+        if (!isLocalPlayer)
         {
             Debug.Log("set Direction called as !localPlayer OR ServerEntity " + isServerEntity);
             return;
         }
+        Debug.Log("AFTER IF");
         CmdSetDirection(direction);
     }
     [Command]
@@ -91,7 +94,7 @@ public class NetworkPlayer : NetworkBehaviour
     }
     public void setLEDDown(bool value)
     {
-        if (!isServerEntity)
+        if (!isLocalPlayer )
         {
             Debug.Log("set LED called as !ServerEntity");
             return;

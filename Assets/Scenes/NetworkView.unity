@@ -823,6 +823,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 215860573}
+    - target: {fileID: 1986430720197154, guid: 8d5004f9c9ca2704080ea3e1183f3cb9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d5004f9c9ca2704080ea3e1183f3cb9, type: 2}
   m_IsPrefabParent: 0
@@ -1457,7 +1461,8 @@ Prefab:
         type: 2}
       propertyPath: role
       value: 
-      objectReference: {fileID: 1114064418}
+      objectReference: {fileID: 1427670244460342, guid: 297753a635fcef9409feca5f1fe6e95c,
+        type: 2}
     - target: {fileID: 114528279853229006, guid: e8261b91a5897c24e8ebeaa5f613e27a,
         type: 2}
       propertyPath: gameStateObject

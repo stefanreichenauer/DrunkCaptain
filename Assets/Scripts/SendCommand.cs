@@ -31,8 +31,6 @@ public class SendCommand : MonoBehaviour {
             gameState.er_right = Input.GetAxis("Horizontal") > 0;
             gameState.er_left = Input.GetAxis("Horizontal") < 0;
 
-            if (Input.GetAxis("Vertical") != 0.0f || Input.GetAxis("Horizontal") != 0.0f)
-                Debug.Log("GG");
         }
 	}
 
