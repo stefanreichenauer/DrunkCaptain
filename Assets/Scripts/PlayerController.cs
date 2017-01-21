@@ -17,27 +17,32 @@ public class PlayerController : MonoBehaviour {
     public float shipAccelerationForce;
     public float shipSteeringAmount;
 
+    public GameObject role;
+
+    private GameState gameState; 
 
     // Use this for initialization
     void Start () {
         shipAcceleration = 0f;
         shipSteeringDirection = 0f;
+        gameState = role.GetComponent<GameState>();
+
         //cam.transform.position = new Vector3(player.transform.position.x, player.transform.position.y,-10);
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
-        if (!Input.GetAxis("Horizontal").Equals(0))
+        
+        if (!gameState.Direction.Equals(0))
         {
-            shipSteeringDirection = -Input.GetAxis("Horizontal") * shipSteeringAmount;
+            shipSteeringDirection = -gameState.Direction * shipSteeringAmount;
 
-            if (Input.GetAxis("Horizontal") < 0 && shipSteeringDirection >= 1f)
+            if (gameState.Direction < 0 && shipSteeringDirection >= 1f)
             {
                 shipSteeringDirection = 1f;
             }
 
-            if (Input.GetAxis("Horizontal") > 0 && shipSteeringDirection <= -1f)
+            if (gameState.Direction > 0 && shipSteeringDirection <= -1f)
             {
                 shipSteeringDirection = -1f;
             }
@@ -53,7 +58,7 @@ public class PlayerController : MonoBehaviour {
                 shipSteeringDirection += 0.01f;
             }
         }
-        shipAcceleration = Input.GetAxis("Vertical") * shipAccelerationForce;
+        shipAcceleration = gameState.Speed * shipAccelerationForce;
 
         //Debug.Log("Vel: " + rigid.angularDrag + " - " + shipDirection);
 

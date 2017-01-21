@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LEDStateProvider : MonoBehaviour {
+public class ShipController : MonoBehaviour {
 
 	public string button;
 
@@ -22,9 +22,10 @@ public class LEDStateProvider : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (netPlayer.isServerEntity)
+        if (!netPlayer.isServerEntity)
         {
-		    isOn = Input.GetButton(button);
+            netPlayer.setDirection(Input.GetAxis("Horizontal"));
+            netPlayer.setSpeed(Input.GetAxis("Vertical"));
         }
 	}
 
