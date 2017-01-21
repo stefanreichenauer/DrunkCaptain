@@ -56,7 +56,8 @@ public class PlayerController : MonoBehaviour {
         shipAcceleration = Input.GetAxis("Vertical") * shipAccelerationForce;
 
         //Debug.Log("Vel: " + rigid.angularDrag + " - " + shipDirection);
-        
+
+        //rigid.angularVelocity += shipSteeringDirection;
         float newRotation = player.transform.rotation.eulerAngles.z + shipSteeringDirection;
         player.transform.rotation = Quaternion.Euler(0, 0, newRotation);
        
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour {
         }
         rigid.AddForce(player.transform.up * shipAcceleration);
 
-        Debug.Log("Vel: " + newRotation + " - " + rigid.velocity.magnitude + " - " + Vector3.Dot(rigid.velocity.normalized, player.transform.up));
+        //Debug.Log("Vel: " + newRotation + " - " + rigid.velocity.magnitude + " - " + Vector3.Dot(rigid.velocity.normalized, player.transform.up));
 
         //cam.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
 
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (!coll.Equals(null))
         {
-            shipAcceleration = 0;
+            //shipAcceleration = 0;
             rigid.velocity = new Vector3(0, 0, 0);
         }
     } 
