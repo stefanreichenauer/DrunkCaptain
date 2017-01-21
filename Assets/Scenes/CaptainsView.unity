@@ -1685,9 +1685,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavePrefabs:
   - {fileID: 1080691138938068, guid: 01c84eb5abb4448ae848f2f0c66a488c, type: 2}
-  spawnSpeed: 0.6
-  minWaveSpeed: 1
-  maxWaveSpeed: 2
+  spawnSpeed: 0.1
+  minWaveSpeed: 0.2
+  maxWaveSpeed: 0.5
 --- !u!4 &1687224371
 Transform:
   m_ObjectHideFlags: 0
