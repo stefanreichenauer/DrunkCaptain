@@ -32,7 +32,7 @@ public class WaveGeneratorSimulator5000 : MonoBehaviour {
 			GameObject wave = Instantiate(wavePrefab, spawnLoc, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
 			
 			float waveSpeed = Random.Range(minWaveSpeed, maxWaveSpeed);
-			Vector2 waveDirection = wave.transform.right * -1;
+			Vector2 waveDirection = wave.transform.up * -1;
 			wave.GetComponent<Rigidbody2D>().AddForce(waveDirection * waveSpeed, ForceMode2D.Impulse);
 		}
 	}

@@ -29,7 +29,7 @@ public class Wave : MonoBehaviour {
 	}
 
 	public void push(Rigidbody2D other){
-		other.AddForce(transform.right * -1, ForceMode2D.Force);
+		other.AddForce(transform.up * -1, ForceMode2D.Force);
 	}
 	public void register(Rigidbody2D other){
 		pushed = other;
