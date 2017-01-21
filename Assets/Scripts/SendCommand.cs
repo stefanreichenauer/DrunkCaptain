@@ -23,15 +23,7 @@ public class SendCommand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (netPlayer.isServerEntity)
-        {
 
-            gameState.er_up = Input.GetAxis("Vertical") > 0;
-            gameState.er_down = Input.GetAxis("Vertical") < 0;
-            gameState.er_right = Input.GetAxis("Horizontal") > 0;
-            gameState.er_left = Input.GetAxis("Horizontal") < 0;
-
-        }
 	}
 
 	public bool isLedTurnedOn(){

@@ -1447,33 +1447,22 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: role
+      value: 
+      objectReference: {fileID: 1114064418}
+    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
     - target: {fileID: 114463483794378966, guid: e8261b91a5897c24e8ebeaa5f613e27a,
         type: 2}
       propertyPath: role
       value: 
       objectReference: {fileID: 1114064418}
     - target: {fileID: 114463483794378966, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: gameStateObject
-      value: 
-      objectReference: {fileID: 108867385}
-    - target: {fileID: 114528279853229006, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: role
-      value: 
-      objectReference: {fileID: 1427670244460342, guid: 297753a635fcef9409feca5f1fe6e95c,
-        type: 2}
-    - target: {fileID: 114528279853229006, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: gameStateObject
-      value: 
-      objectReference: {fileID: 108867385}
-    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: role
-      value: 
-      objectReference: {fileID: 1114064418}
-    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
         type: 2}
       propertyPath: gameStateObject
       value: 
@@ -1488,12 +1477,17 @@ Prefab:
       propertyPath: gameStateObject
       value: 
       objectReference: {fileID: 108867385}
-    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
         type: 2}
       propertyPath: role
       value: 
       objectReference: {fileID: 1114064418}
-    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
+    - target: {fileID: 114528279853229006, guid: e8261b91a5897c24e8ebeaa5f613e27a,
         type: 2}
       propertyPath: gameStateObject
       value: 

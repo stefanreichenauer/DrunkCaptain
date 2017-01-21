@@ -23,7 +23,7 @@ public class LEDStateProvider : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!netPlayer.isServerEntity)
+        if (!netPlayer.getIsServer())
         {
             switch (button)
             {

@@ -23,7 +23,7 @@ public class ShipController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!netPlayer.isServerEntity)
+        if (!netPlayer.getIsServer())
         {
             Debug.Log("SetDir: " + Input.GetAxis("Horizontal"));
             netPlayer.setDirection(Input.GetAxis("Horizontal"));

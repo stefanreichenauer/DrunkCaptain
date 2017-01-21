@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: 
-  role: {fileID: 0}
+  role: {fileID: 1427670244460342, guid: 297753a635fcef9409feca5f1fe6e95c, type: 2}
   gameStateObject: {fileID: 0}
 --- !u!114 &114542511502064936
 MonoBehaviour:

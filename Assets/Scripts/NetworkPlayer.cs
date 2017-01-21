@@ -4,19 +4,21 @@ using UnityEngine.Networking;
 
 public class NetworkPlayer : NetworkBehaviour
 {
-    public bool isServerEntity;
     public GameObject gameState;
     public GameObject helmsmanGUI;
     public GameObject captainGUI;
     public bool isLocalP;
 
+    public bool getIsServer()
+    {
+        return isServer;
+    }
+
     // Use this for initialization
     void Start()
     {
-        isLocalP = isLocalPlayer;
         if (isServer)
         {
-            isServerEntity = true;
             //Camera.main.transform.position = new Vector3(15, 0, -10);
             if(helmsmanGUI)
             {
@@ -25,7 +27,6 @@ public class NetworkPlayer : NetworkBehaviour
         }
         else if (isClient)
         {
-            isServerEntity = false;
             Camera.main.GetComponent<CameraController>().enabled = false;
             Camera.main.transform.position = new Vector3(-1500, 0, -10);
             if (captainGUI)
@@ -43,9 +44,28 @@ public class NetworkPlayer : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        isLocalP = isLocalPlayer;
+
+        if(true || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            if (isServer)
+            {
+                gameState.GetComponent<GameState>().handleInput(
+                    Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            }
+            else
+            {
+                handleInputCmd(
+                    Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            }
+        }
+
     }
 
+    public void handleInputCmd(float horizontal, float vertical)
+    {
 
+    }
 
 
     #region controllGameState
@@ -53,9 +73,9 @@ public class NetworkPlayer : NetworkBehaviour
     //Control of the ship
     public void setSpeed(float speed)
     {
-        if (!isLocalPlayer || isServerEntity)
+        if (!isLocalPlayer || isServer)
         {
-            Debug.Log("set Speed called as !localPlayer OR ServerEntity " + isServerEntity);
+            Debug.Log("set Speed called as !localPlayer OR ServerEntity " + isServer);
             return;
         }
         CmdSetSpeed(speed);
@@ -69,7 +89,7 @@ public class NetworkPlayer : NetworkBehaviour
     {
         if (!isLocalPlayer)
         {
-            Debug.Log("set Direction called as !localPlayer OR ServerEntity " + isServerEntity);
+            Debug.Log("set Direction called as !localPlayer OR ServerEntity " + isServer);
             return;
         }
         Debug.Log("AFTER IF");
@@ -85,7 +105,7 @@ public class NetworkPlayer : NetworkBehaviour
     //Cmd from Captain
     public void setLEDUp(bool value)
     {
-        if (!isServerEntity)
+        if (!isServer)
         {
             Debug.Log("set LED called as !ServerEntity");
             return;
@@ -103,7 +123,7 @@ public class NetworkPlayer : NetworkBehaviour
     }
     public void setLEDLeft(bool value)
     {
-        if (!isServerEntity)
+        if (!isServer)
         {
             Debug.Log("set LED called as !ServerEntity");
             return;
@@ -112,7 +132,7 @@ public class NetworkPlayer : NetworkBehaviour
     }
     public void setLEDRight(bool value)
     {
-        if (!isServerEntity)
+        if (!isServer)
         {
             Debug.Log("set LED called as !ServerEntity");
             return;

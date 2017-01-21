@@ -30,6 +30,15 @@ public class GameState : NetworkBehaviour
     {
         
     }
+
+    public void handleInput(float horizontal, float vertical)
+    {
+        er_up = vertical > 0;
+        er_down = vertical < 0;
+        er_right = horizontal > 0;
+        er_left = horizontal < 0;
+    }
+
     /*
 
     #region msgFromCpt
