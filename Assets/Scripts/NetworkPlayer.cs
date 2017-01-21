@@ -69,8 +69,10 @@ public class NetworkPlayer : NetworkBehaviour
             Debug.Log("set Speed/Direction called as !localPlayer");
             return;
         }
-        CmdSetDirection(Input.GetAxis("Horizontal"));
-        CmdSetSpeed(Input.GetAxis("Vertical"));
+        if(horizontal != 0)
+            CmdSetDirection(Input.GetAxis("Horizontal"));
+        if(vertical != 0)
+            CmdSetSpeed(Input.GetAxis("Vertical"));
     }
 
 
@@ -85,7 +87,6 @@ public class NetworkPlayer : NetworkBehaviour
     [Command]
     public void CmdSetDirection(float direction)
     {
-        Debug.Log("SetDir2: " + Input.GetAxis("Horizontal"));
         gameState.GetComponent<GameState>().direction = direction;
     }
 

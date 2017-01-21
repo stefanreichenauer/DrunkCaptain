@@ -84,8 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38dc2a8fca05283419ae7901e90296ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isServerEntity: 0
-  gameState: {fileID: 1522498349668696, guid: dfa28c4ec4a5619469a499397f32ed64, type: 2}
-  helmsmanGUI: {fileID: 1244041629285402, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-    type: 2}
-  captainGUI: {fileID: 1986430720197154, guid: 8d5004f9c9ca2704080ea3e1183f3cb9, type: 2}
+  gameState: {fileID: 0}
+  helmsmanGUI: {fileID: 0}
+  captainGUI: {fileID: 0}
+  isLocalP: 0

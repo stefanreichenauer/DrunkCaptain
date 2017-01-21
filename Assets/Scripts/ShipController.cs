@@ -8,29 +8,12 @@ public class ShipController : MonoBehaviour {
 
 	private bool isOn;
 
-    public GameObject role;
-
-    public GameObject gameStateObject;
-    private GameState gameState;
-
-    private NetworkPlayer netPlayer;
-
     void Start()
     {
-        gameState = gameStateObject.GetComponent<GameState>();
-        netPlayer = role.GetComponent<NetworkPlayer>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        /*
-        if (!netPlayer.getIsServer())
-        {
-            Debug.Log("SetDir: " + Input.GetAxis("Horizontal"));
-            netPlayer.setDirection(Input.GetAxis("Horizontal"));
-            netPlayer.setSpeed(Input.GetAxis("Vertical"));
-        }
-        */
 	}
 
 	public bool isLedTurnedOn(){
