@@ -14,7 +14,9 @@ public class GameState : NetworkBehaviour
     public bool er_right = false;
 
     //ship controls
+    [SyncVar]
     public float speed = 0.0f;
+    [SyncVar]
     public float direction = 0.0f;
 
     private float last_time_called = -1.0f;

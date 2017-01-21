@@ -14,7 +14,6 @@ public class NetworkPlayer : NetworkBehaviour
     {
         if (isServer)
         {
-            isServerEntity = true;
             //Camera.main.transform.position = new Vector3(15, 0, -10);
             if(helmsmanGUI)
             {
@@ -23,7 +22,6 @@ public class NetworkPlayer : NetworkBehaviour
         }
         else if (isClient)
         {
-            isServerEntity = false;
             Camera.main.GetComponent<CameraController>().enabled = false;
             Camera.main.transform.position = new Vector3(-1500, 0, -10);
             if (captainGUI)
@@ -34,6 +32,7 @@ public class NetworkPlayer : NetworkBehaviour
 
         if (gameState == null)
             gameState = GameObject.Find("GameState");
+
     }
 
 
@@ -51,7 +50,7 @@ public class NetworkPlayer : NetworkBehaviour
     //Control of the ship
     public void setSpeed(float speed)
     {
-        if (!isLocalPlayer || isServerEntity)
+        if (!isLocalPlayer)
         {
             Debug.Log("set Speed called as !localPlayer OR ServerEntity " + isServerEntity);
             return;
@@ -65,7 +64,8 @@ public class NetworkPlayer : NetworkBehaviour
     }
     public void setDirection(float direction)
     {
-        if (!isLocalPlayer || isServerEntity)
+        Debug.Log("isLocal: " + isLocalPlayer);
+        if (!isLocalPlayer)
         {
             Debug.Log("set Direction called as !localPlayer OR ServerEntity " + isServerEntity);
             return;
@@ -118,4 +118,13 @@ public class NetworkPlayer : NetworkBehaviour
     }
 
     #endregion controllGameState
+
+    public bool getIsServer()
+    {
+        return isServer;
+    }
+    public bool getIsLocalPlayer()
+    {
+        return isLocalPlayer;
+    }
 }

@@ -277,8 +277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: up
-  role: {fileID: 0}
-  gameStateObject: {fileID: 0}
+  role: {fileID: 1427670244460342, guid: 297753a635fcef9409feca5f1fe6e95c, type: 2}
+  gameStateObject: {fileID: 1522498349668696, guid: dfa28c4ec4a5619469a499397f32ed64,
+    type: 2}
 --- !u!114 &114237991119499010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,8 +350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: down
-  role: {fileID: 0}
-  gameStateObject: {fileID: 0}
+  role: {fileID: 1427670244460342, guid: 297753a635fcef9409feca5f1fe6e95c, type: 2}
+  gameStateObject: {fileID: 1522498349668696, guid: dfa28c4ec4a5619469a499397f32ed64,
+    type: 2}
 --- !u!114 &114528279853229006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -547,8 +549,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: left
-  role: {fileID: 0}
-  gameStateObject: {fileID: 0}
+  role: {fileID: 1427670244460342, guid: 297753a635fcef9409feca5f1fe6e95c, type: 2}
+  gameStateObject: {fileID: 1522498349668696, guid: dfa28c4ec4a5619469a499397f32ed64,
+    type: 2}
 --- !u!114 &114950928112530480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -561,8 +564,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: right
-  role: {fileID: 0}
-  gameStateObject: {fileID: 0}
+  role: {fileID: 1427670244460342, guid: 297753a635fcef9409feca5f1fe6e95c, type: 2}
+  gameStateObject: {fileID: 1522498349668696, guid: dfa28c4ec4a5619469a499397f32ed64,
+    type: 2}
 --- !u!222 &222184931918486154
 CanvasRenderer:
   m_ObjectHideFlags: 1
