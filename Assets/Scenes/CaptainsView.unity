@@ -430,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time_left: 3600
   current_time: {fileID: 759732038}
+  winText: {fileID: 835844656}
 --- !u!114 &215860576
 MonoBehaviour:
   m_ObjectHideFlags: 0

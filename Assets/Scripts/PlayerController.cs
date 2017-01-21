@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour {
     public GameObject player;
     public Rigidbody2D rigid;
     public Text winText;
+   // public Camera cam;
 
 
 	// Use this for initialization
 	void Start () {
         shipVelocity = 0f;
-        shipDirection = player.transform.rotation.z;
+        shipDirection = 0f;
+        //cam.transform.position = new Vector3(player.transform.position.x, player.transform.position.y,-10);
     }
 	
 	// Update is called once per frame
@@ -23,26 +25,64 @@ public class PlayerController : MonoBehaviour {
 
         if (!Input.GetAxis("Horizontal").Equals(0))
         {
-            shipDirection -= Input.GetAxis("Horizontal");
+            shipDirection -= Input.GetAxis("Horizontal") * 0.01f;
+
+            if (Input.GetAxis("Horizontal") < 0 && shipDirection >= 1f)
+            {
+                shipDirection = 1f;
+            }
+
+            if (Input.GetAxis("Horizontal") > 0 && shipDirection <= -1f)
+            {
+                shipDirection = -1f;
+            }
+        }
+        else
+        {
+            if(shipDirection > 0)
+            {
+                shipDirection -= 0.01f;
+            }
+            else if(shipDirection < 0)
+            {
+                shipDirection += 0.01f;
+            }
         }
         if (!Input.GetAxis("Vertical").Equals(0))
         {
             shipVelocity += Input.GetAxis("Vertical") * 0.05f;
+
+            if(Input.GetAxis("Vertical") > 0 && shipVelocity >= .5f)
+            {
+                shipVelocity = .5f;
+            }
+
+            if (Input.GetAxis("Vertical") < 0 && shipVelocity <= -.5f)
+            {
+                shipVelocity = -.5f;
+            }
         }
-      /*
-        Vector3 newPosition = player.transform.position + player.transform.up * shipVelocity;
-        float newRotation = player.transform.rotation.z + shipDirection;
+        else
+        {
+            shipVelocity = 0f;
+        }
 
-        Debug.Log("Pos: " + newPosition);
-        Debug.Log("Rot: " + newRotation);
-        player.transform.position = newPosition;
+        Debug.Log("Vel: " + rigid.angularDrag + " - " + shipDirection);
+        
+        float newRotation = player.transform.rotation.eulerAngles.z + shipDirection;
         player.transform.rotation = Quaternion.Euler(0, 0, newRotation);
-        */
+        
+        if (shipVelocity == 0f && rigid.velocity.magnitude > 0)
+        {
+            rigid.AddForce(rigid.velocity * (-0.1f));
+        }
+        else {
+            rigid.AddForce(player.transform.up * shipVelocity);
+        }
+        
+        //Debug.Log("Vel: " + rigid.velocity.normalized + " - " + player.transform.up + " - " + Vector3.Dot(rigid.velocity.normalized, player.transform.up));
 
-        float newRotation = player.transform.rotation.z + shipDirection;
-        player.transform.rotation = Quaternion.Euler(0, 0, newRotation);
-        rigid.AddForce(player.transform.up * shipVelocity);
-
+        //cam.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -50,6 +90,7 @@ public class PlayerController : MonoBehaviour {
         if (!coll.Equals(null))
         {
             shipVelocity = 0;
+            rigid.velocity = new Vector3(0, 0, 0);
         }
     } 
     void OnTriggerEnter2D(Collider2D other)
