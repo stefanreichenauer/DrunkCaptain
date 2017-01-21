@@ -5,17 +5,17 @@ public class GameState : NetworkBehaviour
 {
     //Bool variables controlling the engine room LEDs
     [SyncVar]
-    private bool er_up = false;
+    public bool er_up = false;
     [SyncVar]
-    private bool er_down = false;
+    public bool er_down = false;
     [SyncVar]
-    private bool er_left = false;
+    public bool er_left = false;
     [SyncVar]
-    private bool er_right = false;
+    public bool er_right = false;
 
     //ship controls
-    private float speed = 0.0f;
-    private float direction = 0.0f;
+    public float speed = 0.0f;
+    public float direction = 0.0f;
 
     private float last_time_called = -1.0f;
 
@@ -30,7 +30,7 @@ public class GameState : NetworkBehaviour
     {
         
     }
-    
+    /*
 
     #region msgFromCpt
     //properties
@@ -42,6 +42,7 @@ public class GameState : NetworkBehaviour
         }
         set
         {
+            Debug.Log("UpSetter " + value);
             er_up = value;
         }
     }
@@ -79,7 +80,7 @@ public class GameState : NetworkBehaviour
         }
     }
     #endregion msgFromCpt
-
+    
     #region controlShip
     //properties
     public float Speed
@@ -107,5 +108,9 @@ public class GameState : NetworkBehaviour
 
 
     #endregion controlShip
-
+    public void setLEDUp(bool value)
+    {
+        er_up = value;
+    }
+    */
 }

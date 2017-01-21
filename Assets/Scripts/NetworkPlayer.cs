@@ -16,14 +16,20 @@ public class NetworkPlayer : NetworkBehaviour
         {
             isServerEntity = true;
             //Camera.main.transform.position = new Vector3(15, 0, -10);
-            helmsmanGUI.gameObject.SetActive(false);
+            if(helmsmanGUI)
+            {
+                helmsmanGUI.gameObject.SetActive(false);
+            }
         }
         else if (isClient)
         {
             isServerEntity = false;
             Camera.main.GetComponent<CameraController>().enabled = false;
             Camera.main.transform.position = new Vector3(-1500, 0, -10);
-            captainGUI.gameObject.SetActive(false);
+            if (captainGUI)
+            {
+                captainGUI.gameObject.SetActive(false);
+            }
         }
 
         if (gameState == null)
@@ -47,7 +53,7 @@ public class NetworkPlayer : NetworkBehaviour
     {
         if (!isLocalPlayer || isServerEntity)
         {
-            Debug.Log("set Speed called as !localPlayer OR ServerEntity");
+            Debug.Log("set Speed called as !localPlayer OR ServerEntity " + isServerEntity);
             return;
         }
         CmdSetSpeed(speed);
@@ -55,13 +61,13 @@ public class NetworkPlayer : NetworkBehaviour
     [Command]
     public void CmdSetSpeed(float speed)
     {
-        gameState.GetComponent<GameState>().Speed = speed;
+        gameState.GetComponent<GameState>().speed = speed;
     }
     public void setDirection(float direction)
     {
         if (!isLocalPlayer || isServerEntity)
         {
-            Debug.Log("set Direction called as !localPlayer OR ServerEntity");
+            Debug.Log("set Direction called as !localPlayer OR ServerEntity " + isServerEntity);
             return;
         }
         CmdSetDirection(direction);
@@ -69,7 +75,8 @@ public class NetworkPlayer : NetworkBehaviour
     [Command]
     public void CmdSetDirection(float direction)
     {
-        gameState.GetComponent<GameState>().Direction = direction;
+        Debug.Log("SetDir2: " + Input.GetAxis("Horizontal"));
+        gameState.GetComponent<GameState>().direction = direction;
     }
 
     //Cmd from Captain
@@ -80,7 +87,7 @@ public class NetworkPlayer : NetworkBehaviour
             Debug.Log("set LED called as !ServerEntity");
             return;
         }
-        gameState.GetComponent<GameState>().LEDup = value;
+        gameState.GetComponent<GameState>().er_up = value;
     }
     public void setLEDDown(bool value)
     {
@@ -89,7 +96,7 @@ public class NetworkPlayer : NetworkBehaviour
             Debug.Log("set LED called as !ServerEntity");
             return;
         }
-        gameState.GetComponent<GameState>().LEDdown = value;
+        gameState.GetComponent<GameState>().er_down = value;
     }
     public void setLEDLeft(bool value)
     {
@@ -98,7 +105,7 @@ public class NetworkPlayer : NetworkBehaviour
             Debug.Log("set LED called as !ServerEntity");
             return;
         }
-        gameState.GetComponent<GameState>().LEDleft = value;
+        gameState.GetComponent<GameState>().er_left = value;
     }
     public void setLEDRight(bool value)
     {
@@ -107,7 +114,7 @@ public class NetworkPlayer : NetworkBehaviour
             Debug.Log("set LED called as !ServerEntity");
             return;
         }
-        gameState.GetComponent<GameState>().LEDright = value;
+        gameState.GetComponent<GameState>().er_right = value;
     }
 
     #endregion controllGameState

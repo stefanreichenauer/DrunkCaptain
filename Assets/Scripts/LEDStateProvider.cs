@@ -10,21 +10,38 @@ public class LEDStateProvider : MonoBehaviour {
 
     public GameObject role;
 
+    public GameObject gameStateObject;
     private GameState gameState;
 
     private NetworkPlayer netPlayer;
 
     void Start()
     {
-        gameState = role.GetComponent<GameState>();
+        gameState = gameStateObject.GetComponent<GameState>();
         netPlayer = role.GetComponent<NetworkPlayer>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (netPlayer.isServerEntity)
+        if (!netPlayer.isServerEntity)
         {
-		    isOn = Input.GetButton(button);
+            switch (button)
+            {
+                case "up":
+                    isOn = gameState.er_up;
+                    break;
+                case "down":
+                    isOn = gameState.er_down;
+                    break;
+                case "left":
+                    isOn = gameState.er_left;
+                    break;
+                case "right":
+                    isOn = gameState.er_right;
+                    break;
+                default:
+                    break;
+            }
         }
 	}
 

@@ -179,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108867387}
   - component: {fileID: 108867386}
+  - component: {fileID: 108867388}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -197,6 +198,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d15293e1756c034aa9efb4ed0c9dc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  er_up: 0
+  er_down: 0
+  er_left: 0
+  er_right: 0
+  speed: 0
+  direction: 0
 --- !u!4 &108867387
 Transform:
   m_ObjectHideFlags: 0
@@ -210,6 +217,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &108867388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 108867385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &134097159
 Prefab:
   m_ObjectHideFlags: 0
@@ -1220,7 +1259,8 @@ MonoBehaviour:
   shipMaxSpeed: 2
   shipAccelerationForce: 0.5
   shipSteeringAmount: 20
-  role: {fileID: 0}
+  role: {fileID: 1114064418}
+  gameStateObject: {fileID: 108867385}
 --- !u!50 &1177050102
 Rigidbody2D:
   serializedVersion: 4
@@ -1246,6 +1286,20 @@ GameObject:
   m_PrefabParentObject: {fileID: 1986430720197154, guid: 8d5004f9c9ca2704080ea3e1183f3cb9,
     type: 2}
   m_PrefabInternal: {fileID: 817233589}
+--- !u!114 &1222758694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1222758693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0ece16fc39b3f43b6f7e15e56dc3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 
+  role: {fileID: 1114064418}
+  gameStateObject: {fileID: 108867385}
 --- !u!1001 &1295907236
 Prefab:
   m_ObjectHideFlags: 0
@@ -1409,6 +1463,56 @@ Prefab:
       propertyPath: role
       value: 
       objectReference: {fileID: 1114064418}
+    - target: {fileID: 114943610966804734, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: button
+      value: left
+      objectReference: {fileID: 0}
+    - target: {fileID: 114463483794378966, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: button
+      value: down
+      objectReference: {fileID: 0}
+    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: button
+      value: right
+      objectReference: {fileID: 0}
+    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: button
+      value: up
+      objectReference: {fileID: 0}
+    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
+    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
+    - target: {fileID: 114463483794378966, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
+    - target: {fileID: 114943610966804734, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
+    - target: {fileID: 114528279853229006, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: role
+      value: 
+      objectReference: {fileID: 1114064418}
+    - target: {fileID: 114528279853229006, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8261b91a5897c24e8ebeaa5f613e27a, type: 2}
   m_IsPrefabParent: 0

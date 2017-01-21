@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipController : MonoBehaviour {
+public class SendCommand : MonoBehaviour {
 
 	public string button;
 
 	private bool isOn;
 
     public GameObject role;
-
     public GameObject gameStateObject;
+
     private GameState gameState;
 
     private NetworkPlayer netPlayer;
@@ -23,11 +23,13 @@ public class ShipController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!netPlayer.isServerEntity)
+        if (netPlayer.isServerEntity)
         {
-            Debug.Log("SetDir: " + Input.GetAxis("Horizontal"));
-            netPlayer.setDirection(Input.GetAxis("Horizontal"));
-            netPlayer.setSpeed(Input.GetAxis("Vertical"));
+
+            gameState.er_up = Input.GetAxis("Vertical") > 0;
+            gameState.er_down = Input.GetAxis("Vertical") < 0;
+            gameState.er_right = Input.GetAxis("Horizontal") > 0;
+            gameState.er_left = Input.GetAxis("Horizontal") < 0;
         }
 	}
 
