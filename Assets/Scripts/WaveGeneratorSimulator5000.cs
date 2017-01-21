@@ -11,6 +11,9 @@ public class WaveGeneratorSimulator5000 : MonoBehaviour {
 
 	private float nextSpawn = 0;
 
+	public float minWaveSpeed = 1;
+	public float maxWaveSpeed = 2;
+
 	private BoxCollider2D spawnBox;
 
 	// Use this for initialization
@@ -22,11 +25,15 @@ public class WaveGeneratorSimulator5000 : MonoBehaviour {
 	void FixedUpdate () {
 		if(Time.time > nextSpawn){
 			nextSpawn = Time.time + spawnSpeed;
-			GameObject wavePrefab = wavePrefabs[0]; //TODO: random
+			GameObject wavePrefab = wavePrefabs[Random.Range(0, wavePrefabs.Count)];
 			Vector2 min = spawnBox.bounds.min;
 			Vector2 dimension = spawnBox.bounds.size;
 			Vector2 spawnLoc = min + new Vector2(dimension.x * Random.value, dimension.y * Random.value);
 			GameObject wave = Instantiate(wavePrefab, spawnLoc, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+			
+			float waveSpeed = Random.Range(minWaveSpeed, maxWaveSpeed);
+			Vector2 waveDirection = wave.transform.right * -1;
+			wave.GetComponent<Rigidbody2D>().AddForce(waveDirection * waveSpeed, ForceMode2D.Impulse);
 		}
 	}
 }

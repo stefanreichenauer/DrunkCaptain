@@ -6,6 +6,8 @@ public class Wave : MonoBehaviour {
 
 	public float power = 3;
 
+	public float waveSpeed = 1;
+
 	public float duration = 5;
 	private float startTime;
 
