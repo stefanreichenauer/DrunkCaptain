@@ -5,20 +5,23 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-    float shipVelocity;
-    float shipDirection;
+    float shipAcceleration;
+    float shipSteeringDirection;
     public GameObject player;
     public Rigidbody2D rigid;
     public Text winText;
     public Transform goal;
     public Transform compass;
-    // public Camera cam;
+
+    public float shipMaxSpeed;
+    public float shipAccelerationForce;
+    public float shipSteeringAmount;
 
 
     // Use this for initialization
     void Start () {
-        shipVelocity = 0f;
-        shipDirection = 0f;
+        shipAcceleration = 0f;
+        shipSteeringDirection = 0f;
         //cam.transform.position = new Vector3(player.transform.position.x, player.transform.position.y,-10);
     }
 	
@@ -27,60 +30,41 @@ public class PlayerController : MonoBehaviour {
 
         if (!Input.GetAxis("Horizontal").Equals(0))
         {
-            shipDirection = -Input.GetAxis("Horizontal");
+            shipSteeringDirection = -Input.GetAxis("Horizontal") * shipSteeringAmount;
 
-            if (Input.GetAxis("Horizontal") < 0 && shipDirection >= 1f)
+            if (Input.GetAxis("Horizontal") < 0 && shipSteeringDirection >= 1f)
             {
-                shipDirection = 1f;
+                shipSteeringDirection = 1f;
             }
 
-            if (Input.GetAxis("Horizontal") > 0 && shipDirection <= -1f)
+            if (Input.GetAxis("Horizontal") > 0 && shipSteeringDirection <= -1f)
             {
-                shipDirection = -1f;
+                shipSteeringDirection = -1f;
             }
         }
         else
         {
-            if(shipDirection > 0)
+            if(shipSteeringDirection > 0)
             {
-                shipDirection -= 0.01f;
+                shipSteeringDirection -= 0.01f;
             }
-            else if(shipDirection < 0)
+            else if(shipSteeringDirection < 0)
             {
-                shipDirection += 0.01f;
-            }
-        }
-        if (!Input.GetAxis("Vertical").Equals(0))
-        {
-            shipVelocity = Input.GetAxis("Vertical");
-
-            if(Input.GetAxis("Vertical") > 0 && shipVelocity >= .5f)
-            {
-                shipVelocity = .5f;
-            }
-
-            if (Input.GetAxis("Vertical") < 0 && shipVelocity <= -.5f)
-            {
-                shipVelocity = -.5f;
+                shipSteeringDirection += 0.01f;
             }
         }
-        else
-        {
-            shipVelocity = 0f;
-        }
+        shipAcceleration = Input.GetAxis("Vertical") * shipAccelerationForce;
 
         //Debug.Log("Vel: " + rigid.angularDrag + " - " + shipDirection);
         
-        float newRotation = player.transform.rotation.eulerAngles.z + shipDirection;
+        float newRotation = player.transform.rotation.eulerAngles.z + shipSteeringDirection;
         player.transform.rotation = Quaternion.Euler(0, 0, newRotation);
         
-        if (shipVelocity == 0f && rigid.velocity.magnitude > 0)
+        if (rigid.velocity.magnitude > shipMaxSpeed)
         {
             rigid.AddForce(rigid.velocity * (-0.1f));
         }
-        else {
-            rigid.AddForce(player.transform.up * shipVelocity);
-        }
+        rigid.AddForce(player.transform.up * shipAcceleration);
 
         //Debug.Log("Vel: " + rigid.velocity.normalized + " - " + player.transform.up + " - " + Vector3.Dot(rigid.velocity.normalized, player.transform.up));
 
@@ -95,7 +79,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (!coll.Equals(null))
         {
-            shipVelocity = 0;
+            shipAcceleration = 0;
             rigid.velocity = new Vector3(0, 0, 0);
         }
     } 

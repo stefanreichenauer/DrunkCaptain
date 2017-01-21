@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d367ae6a8f24d6fbf0e2e3b978cd4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 3000
+  power: 1000
   waveSpeed: 1
   duration: 5
 --- !u!212 &212608429032187238
