@@ -9,58 +9,78 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1955524440397610}
+  m_RootGameObject: {fileID: 1375978078165616}
   m_IsPrefabParent: 1
---- !u!1 &1955524440397610
+--- !u!1 &1375978078165616
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4498464328741426}
-  - component: {fileID: 212097227868082786}
-  - component: {fileID: 58173431596253134}
+  - component: {fileID: 4101758599572038}
+  - component: {fileID: 212231923364244842}
+  - component: {fileID: 60337462253855286}
   m_Layer: 0
-  m_Name: Stone
+  m_Name: Island
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4498464328741426
+--- !u!4 &4101758599572038
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955524440397610}
+  m_GameObject: {fileID: 1375978078165616}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.232, y: -0.981, z: 0}
+  m_LocalPosition: {x: 1.354, y: -0.736, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58173431596253134
-CircleCollider2D:
+--- !u!60 &60337462253855286
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955524440397610}
+  m_GameObject: {fileID: 1375978078165616}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
---- !u!212 &212097227868082786
+  m_Points:
+    m_Paths:
+    - - {x: 0.3724888, y: 0.11690587}
+      - {x: 0.31685215, y: 0.2514124}
+      - {x: 0.2726072, y: 0.31270456}
+      - {x: 0.24746627, y: 0.35746637}
+      - {x: 0.21300447, y: 0.39197308}
+      - {x: -0.102488756, y: 0.39047086}
+      - {x: -0.21695068, y: 0.29248875}
+      - {x: -0.24000001, y: 0.23497757}
+      - {x: -0.42596418, y: 0.09901345}
+      - {x: -0.44497758, y: -0.015022397}
+      - {x: -0.45999998, y: -0.089999996}
+      - {x: -0.43399101, y: -0.13347533}
+      - {x: -0.2569507, y: -0.18845293}
+      - {x: -0.21493277, y: -0.30145732}
+      - {x: -0.045493245, y: -0.3989686}
+      - {x: 0.11239916, y: -0.4124888}
+      - {x: 0.21197307, y: -0.3994843}
+      - {x: 0.28446198, y: -0.35952917}
+      - {x: 0.32995504, y: -0.30150226}
+      - {x: 0.35596412, y: -0.11751118}
+--- !u!212 &212231923364244842
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955524440397610}
+  m_GameObject: {fileID: 1375978078165616}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -86,7 +106,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7c3a793eb3b0d434e8d056caba28e415, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2392fcb0ed944519a84bfa86aa8fc91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
