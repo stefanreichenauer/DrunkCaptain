@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 
         if (!Input.GetAxis("Horizontal").Equals(0))
         {
-            shipDirection -= Input.GetAxis("Horizontal") * 0.01f;
+            shipDirection = -Input.GetAxis("Horizontal");
 
             if (Input.GetAxis("Horizontal") < 0 && shipDirection >= 1f)
             {
