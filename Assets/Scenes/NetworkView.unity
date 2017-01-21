@@ -1443,62 +1443,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114943610966804734, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: role
-      value: 
-      objectReference: {fileID: 1114064418}
     - target: {fileID: 114463483794378966, guid: e8261b91a5897c24e8ebeaa5f613e27a,
         type: 2}
       propertyPath: role
       value: 
       objectReference: {fileID: 1114064418}
-    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: role
-      value: 
-      objectReference: {fileID: 1114064418}
-    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: role
-      value: 
-      objectReference: {fileID: 1114064418}
-    - target: {fileID: 114943610966804734, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: button
-      value: left
-      objectReference: {fileID: 0}
     - target: {fileID: 114463483794378966, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: button
-      value: down
-      objectReference: {fileID: 0}
-    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: button
-      value: right
-      objectReference: {fileID: 0}
-    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: button
-      value: up
-      objectReference: {fileID: 0}
-    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: gameStateObject
-      value: 
-      objectReference: {fileID: 108867385}
-    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: gameStateObject
-      value: 
-      objectReference: {fileID: 108867385}
-    - target: {fileID: 114463483794378966, guid: e8261b91a5897c24e8ebeaa5f613e27a,
-        type: 2}
-      propertyPath: gameStateObject
-      value: 
-      objectReference: {fileID: 108867385}
-    - target: {fileID: 114943610966804734, guid: e8261b91a5897c24e8ebeaa5f613e27a,
         type: 2}
       propertyPath: gameStateObject
       value: 
@@ -1513,6 +1463,40 @@ Prefab:
       propertyPath: gameStateObject
       value: 
       objectReference: {fileID: 108867385}
+    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: role
+      value: 
+      objectReference: {fileID: 1114064418}
+    - target: {fileID: 114950928112530480, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
+    - target: {fileID: 114943610966804734, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: role
+      value: 
+      objectReference: {fileID: 1114064418}
+    - target: {fileID: 114943610966804734, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
+    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: role
+      value: 
+      objectReference: {fileID: 1114064418}
+    - target: {fileID: 114202923144647382, guid: e8261b91a5897c24e8ebeaa5f613e27a,
+        type: 2}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 108867385}
+    - target: {fileID: 1244041629285402, guid: e8261b91a5897c24e8ebeaa5f613e27a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8261b91a5897c24e8ebeaa5f613e27a, type: 2}
   m_IsPrefabParent: 0

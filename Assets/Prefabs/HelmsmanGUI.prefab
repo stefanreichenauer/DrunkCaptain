@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1323531484552232
 GameObject:
   m_ObjectHideFlags: 1
@@ -363,9 +363,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: 
-  role: {fileID: 1427670244460342, guid: 297753a635fcef9409feca5f1fe6e95c, type: 2}
-  gameStateObject: {fileID: 1522498349668696, guid: dfa28c4ec4a5619469a499397f32ed64,
-    type: 2}
+  role: {fileID: 0}
+  gameStateObject: {fileID: 0}
 --- !u!114 &114542511502064936
 MonoBehaviour:
   m_ObjectHideFlags: 1
