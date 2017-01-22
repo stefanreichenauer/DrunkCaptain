@@ -30,9 +30,14 @@ public class GameState : NetworkBehaviour
 
     private bool disconnectIfNoClients = false;
 
+    public GameObject menuManagerObj;
+    public MenuManager menuManager;
+
     // Use this for initialization
     void Start()
     {
+        menuManagerObj = GameObject.Find("MenuManager");
+        menuManager = menuManagerObj.GetComponent<MenuManager>();
         netManager = NetworkGUI.GetComponent < NetworkManager > ();
     }
 
@@ -53,12 +58,22 @@ public class GameState : NetworkBehaviour
                 gameState = State.StateEnum.RUNNING;
             }
         }
-
-        if (disconnectIfNoClients)
+        else if (gameState == State.StateEnum.SUCCESS)
+        {
+            if (isClient)
+            {
+                menuManager.isSuccess = true;
+                disconnect();
+            }
+        }
+        Debug.Log("Clients: " + getIsClientConnected());
+        if (disconnectIfNoClients && !getIsClientConnected())
         {
             netManager.StopServer();
             loadScene();
         }
+
+        
     }
 
     public bool getIsClientConnected()
@@ -78,12 +93,14 @@ public class GameState : NetworkBehaviour
 
     public void finishReached()
     {
+        menuManager.isSuccess = true;
         gameState = State.StateEnum.SUCCESS;
         disconnect();
     }
 
     public void timeOver()
     {
+        menuManager.isSuccess = false;
         gameState = State.StateEnum.FAILURE;
         disconnect();
     }
