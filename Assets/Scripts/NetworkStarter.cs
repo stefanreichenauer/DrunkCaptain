@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class NetworkStarter : MonoBehaviour
 {
@@ -42,6 +43,4 @@ public class NetworkStarter : MonoBehaviour
     {
 
     }
-
-    
 }
