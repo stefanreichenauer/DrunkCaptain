@@ -10,7 +10,9 @@ public class EndScript : MonoBehaviour {
     public MenuManager menuManager;
 
     public Text endText;
-
+	public Sprite final_image_win;
+	public Sprite final_image_fail;
+	public GameObject image_background;
     float waitTime = -1;
     // Use this for initialization
     void Start()
@@ -20,10 +22,13 @@ public class EndScript : MonoBehaviour {
         if (menuManager.isSuccess)
         {
             endText.text = "You won";
+			image_background.GetComponent<Image> ().sprite = final_image_win;
+
         }
         else
         {
             endText.text = "Loooooooooooooooooooooooooser";
+			image_background.GetComponent<Image> ().sprite = final_image_fail;
         }
         waitTime = Time.time;
 
