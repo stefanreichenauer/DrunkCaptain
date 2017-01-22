@@ -27,7 +27,13 @@ public class MenuManager : MonoBehaviour
 
     public void Awake()
     {
+        
         DontDestroyOnLoad(gameObject);
+        /*
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }*/
     }
 
     public void startGame()
