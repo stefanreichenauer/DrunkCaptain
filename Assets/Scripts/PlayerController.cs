@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject role;
     public GameObject gameStateObject;
+	public AudioClip otherClip;
 
     private GameState gameState;
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
         Debug.Log("GameStateDir: " + gameState.direction);
         if (!gameState.direction.Equals(0))
         {
@@ -90,6 +92,9 @@ public class PlayerController : MonoBehaviour {
         {
             if(last_collision + 3 < Time.time && gameState.gameState == State.StateEnum.RUNNING)
             {
+				AudioSource audio = GetComponent<AudioSource>();
+				audio.clip = otherClip;
+				audio.Play();
                 rigid.velocity = new Vector3(0, 0, 0);
 
                 gameState.setCollision();
