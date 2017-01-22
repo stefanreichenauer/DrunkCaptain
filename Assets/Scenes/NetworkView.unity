@@ -204,6 +204,9 @@ MonoBehaviour:
   er_right: 0
   speed: 0
   direction: 0
+  gameState: 0
+  isClientConnected: 0
+  NetworkGUI: {fileID: 1027822960}
 --- !u!4 &108867387
 Transform:
   m_ObjectHideFlags: 0
@@ -398,6 +401,8 @@ MonoBehaviour:
   time_left: 3600
   current_time: {fileID: 759732038}
   winText: {fileID: 835844656}
+  running: 0
+  gameStateObj: {fileID: 108867385}
 --- !u!114 &215860576
 MonoBehaviour:
   m_ObjectHideFlags: 0

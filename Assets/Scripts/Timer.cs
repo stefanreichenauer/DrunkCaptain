@@ -10,22 +10,36 @@ public class Timer : MonoBehaviour {
     public Text current_time;
     public Text winText;
 
+    public bool running = false;
+    public GameObject gameStateObj;
+    private GameState gameState;
+
     // Use this for initialization
     void Start () {
-		
-	}
+        gameState = gameStateObj.GetComponent<GameState>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        time_left -= Time.deltaTime;
-
-        if(time_left <= 0f)
+        if (running)
         {
-            current_time.gameObject.SetActive(false);
-            StartCoroutine("GameOver");
-        }
+            time_left -= Time.deltaTime;
 
-        displayTime();
+            if (time_left <= 0f)
+            {
+                current_time.gameObject.SetActive(false);
+                StartCoroutine("GameOver");
+            }
+
+            displayTime();
+        }
+        else
+        {
+            if(gameState.gameState == State.StateEnum.RUNNING)
+            {
+                running = true;
+            }
+        }
 	}
 
     public void displayTime()

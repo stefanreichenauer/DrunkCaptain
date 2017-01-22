@@ -19,17 +19,38 @@ public class GameState : NetworkBehaviour
 
     private float last_time_called = -1.0f;
 
+    [SyncVar]
+    public State.StateEnum gameState = State.StateEnum.PREPERATION;
+
+    public bool isClientConnected;
+
+    public GameObject NetworkGUI;
+    private NetworkManager netManager;
+
     // Use this for initialization
     void Start()
     {
-
+        netManager = NetworkGUI.GetComponent < NetworkManager > ();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(gameState == State.StateEnum.PREPERATION)
+        {
+            if(getIsClientConnected())
+            {
+                gameState = State.StateEnum.RUNNING;
+            }
+        }
     }
+
+    public bool getIsClientConnected()
+    {
+        isClientConnected = netManager.numPlayers > 0;
+        return isClientConnected;
+    }
+
 
     public void handleInput(float horizontal, float vertical)
     {
