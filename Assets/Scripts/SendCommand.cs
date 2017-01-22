@@ -26,7 +26,7 @@ public class SendCommand : MonoBehaviour {
         if (netPlayer.isServerEntity)
         {
 
-            gameState.er_up = Input.GetAxis("Vertical") > 0;
+           // gameState.er_up = Input.GetAxis("Vertical") > 0;
             gameState.er_down = Input.GetAxis("Vertical") < 0;
             gameState.er_right = Input.GetAxis("Horizontal") > 0;
             gameState.er_left = Input.GetAxis("Horizontal") < 0;

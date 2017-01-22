@@ -25,9 +25,10 @@ public class ShipController : MonoBehaviour {
 	void Update () {
         if (!netPlayer.isServerEntity)
         {
-            Debug.Log("SetDir: " + Input.GetAxis("Horizontal"));
+            
+           // Debug.Log("SetDir: " + GameObject.Find("Role(Clone)"));
             netPlayer.setDirection(Input.GetAxis("Horizontal"));
-            netPlayer.setSpeed(Input.GetAxis("Vertical"));
+            //netPlayer.setSpeed(Input.GetAxis("Vertical"));
         }
 	}
 

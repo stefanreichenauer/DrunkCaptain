@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
     public float shipMaxSpeed;
     public float shipAccelerationForce;
     public float shipSteeringAmount;
+    public float shipSpeed;
 
     public GameObject role;
     public GameObject gameStateObject;
@@ -33,7 +34,10 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        Debug.Log("GameStateDir: " + gameState.direction);
+        
+        Debug.Log("GameStateDir: " + shipSpeed);
+
+        Debug.Log("GameStateSpeed: " + gameState.speed);
         if (!gameState.direction.Equals(0))
         {
             shipSteeringDirection = -gameState.direction * shipSteeringAmount;

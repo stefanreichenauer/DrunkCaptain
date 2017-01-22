@@ -14,22 +14,48 @@ public class GameState : NetworkBehaviour
     public bool er_right = false;
 
     //ship controls
+    [SyncVar]
     public float speed = 0.0f;
     public float direction = 0.0f;
+    
+    public bool speedUp = false;
 
     private float last_time_called = -1.0f;
+
+    public GameObject player;
+    private PlayerController playerController;
 
     // Use this for initialization
     void Start()
     {
-
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        playerController.shipSpeed = speed;
     }
+
+    public void switchUpLED(bool up)
+    {
+        er_up = up;
+    }
+
+    public void setSpeed()
+    {/*
+        Debug.Log("setSpeed0 " + speed);
+        
+        if (last_time_called + 1.0f > Time.time)
+            return;
+        else
+            last_time_called = Time.time;
+            */
+        Debug.Log("setSpeed " + speedUp);
+        speedUp = true;
+        Debug.Log("setSpeed2 " + speedUp);
+    }
+
     /*
 
     #region msgFromCpt

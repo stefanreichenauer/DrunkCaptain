@@ -9,11 +9,13 @@ public class NetworkPlayer : NetworkBehaviour
     public GameObject helmsmanGUI;
     public GameObject captainGUI;
     public bool isLocalP;
+    public bool isServerP;
 
     // Use this for initialization
     void Start()
     {
         isLocalP = isLocalPlayer;
+        isServerP = isServer;
         if (isServer)
         {
             isServerEntity = true;
@@ -43,9 +45,42 @@ public class NetworkPlayer : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        isLocalP = isLocalPlayer;
+
+        isServerP = isServer;
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (isServer)
+            {
+                gameState.GetComponent<GameState>().switchUpLED(true);
+            }
+            else
+            {
+                Debug.Log("Network.Update");
+                AccelerateShip();
+            }
+        }
+
     }
 
+    [Command]
+    private void CmdAccelerateShip()
+    {
+        Debug.Log("CmdAccelerate");
+        gameState.GetComponent<GameState>().setSpeed();
+    }
 
+    public void AccelerateShip()
+    {
+        Debug.Log("Accelerate1 " + isLocalPlayer);
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+        Debug.Log("Accelerate2");
+        CmdAccelerateShip();
+    }
 
 
     #region controllGameState
