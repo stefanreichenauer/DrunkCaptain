@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (!coll.Equals(null))
         {
-            if(last_collision + 3 < Time.time && gameState.gameState == State.StateEnum.RUNNING)
+            if(last_collision + 5 < Time.time && gameState.gameState == State.StateEnum.RUNNING)
             {
 				AudioSource audio = GetComponent<AudioSource>();
 				audio.clip = otherClip;
