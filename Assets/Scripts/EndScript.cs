@@ -21,13 +21,13 @@ public class EndScript : MonoBehaviour {
         menuManager = menuManagerObj.GetComponent<MenuManager>();
         if (menuManager.isSuccess)
         {
-            endText.text = "You won";
+            //endText.text = "You won";
 			image_background.GetComponent<Image> ().sprite = final_image_win;
 
         }
         else
         {
-            endText.text = "Loooooooooooooooooooooooooser";
+            //endText.text = "Loooooooooooooooooooooooooser";
 			image_background.GetComponent<Image> ().sprite = final_image_fail;
         }
         waitTime = Time.time;
