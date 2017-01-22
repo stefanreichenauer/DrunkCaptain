@@ -66,7 +66,9 @@ public class NetworkPlayer : NetworkBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Escaped the ship");
             gameStateComponent.gameState = State.StateEnum.FAILURE;
+            gameStateComponent.disconnect();
         }
 
     }

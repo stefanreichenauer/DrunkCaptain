@@ -66,7 +66,7 @@ public class GameState : NetworkBehaviour
                 disconnect();
             }
         }
-        Debug.Log("Clients: " + getIsClientConnected());
+        //Debug.Log("Clients: " + getIsClientConnected());
         if (disconnectIfNoClients && !getIsClientConnected())
         {
             netManager.StopServer();
