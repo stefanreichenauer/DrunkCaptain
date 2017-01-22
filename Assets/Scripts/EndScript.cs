@@ -40,6 +40,8 @@ public class EndScript : MonoBehaviour {
         {
 
             menuManager.buttons.SetActive(true);
+            Destroy(menuManagerObj);
+            Destroy(GameObject.Find("Network Manager"));
             SceneManager.LoadScene("MainMenu");
         }
 
