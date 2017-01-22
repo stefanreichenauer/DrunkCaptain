@@ -21,6 +21,7 @@ public class Throttle:MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        currentValue = Input.GetAxis("Vertical") * -90;
 		if (currentValue > maxValue) {
 			currentValue = maxValue; 
 		}else if (currentValue <  -maxValue) {

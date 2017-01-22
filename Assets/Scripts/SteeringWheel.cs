@@ -15,6 +15,7 @@ public class SteeringWheel:MonoBehaviour {
 	}
 	// Update is called once per frame
 	void FixedUpdate () {
+        currentRotation = Input.GetAxis("Horizontal") * 120;
 		if (currentRotation > maxRotation) {
 			currentRotation = maxRotation; 
 		}else if (currentRotation < -maxRotation) {
