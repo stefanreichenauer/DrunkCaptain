@@ -13,10 +13,11 @@ public class Timer : MonoBehaviour {
     public bool running = false;
     public GameObject gameStateObj;
     private GameState gameState;
-
+    public GameObject helmsmansText;
     // Use this for initialization
     void Start () {
         gameState = gameStateObj.GetComponent<GameState>();
+        
     }
 	
 	// Update is called once per frame
@@ -44,6 +45,8 @@ public class Timer : MonoBehaviour {
             if(gameState.gameState == State.StateEnum.RUNNING)
             {
                 running = true;
+                current_time.gameObject.SetActive(true);
+                helmsmansText.SetActive(false);
             }
         }
 	}
