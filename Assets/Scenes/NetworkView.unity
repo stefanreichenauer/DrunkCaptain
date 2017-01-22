@@ -1033,12 +1033,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1027822960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2681459a98b3740a2ba9da648e119a, type: 3}
+  m_Script: {fileID: 11500000, guid: 901c0eb839fbfb744b232a62f981f160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionIP: 127.0.0.1
-  connectionPort: 7777
-  txt: 127.0.0.1
+  menuManagerObj: {fileID: 0}
+  menuManager: {fileID: 0}
 --- !u!114 &1027822962
 MonoBehaviour:
   m_ObjectHideFlags: 0

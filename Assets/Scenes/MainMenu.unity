@@ -267,6 +267,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCaptain: 1
+  connectionIP: 127.0.0.1
+  connectionPort: 7777
+  ip: 127.0.0.1
+  buttons: {fileID: 1100131719}
 --- !u!4 &546404594
 Transform:
   m_ObjectHideFlags: 0

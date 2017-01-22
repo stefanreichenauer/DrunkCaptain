@@ -17,6 +17,7 @@ public class NetworkGUI : NetworkBehaviour
     // Use this for initialization
     void Start()
     {
+       
 
     }
 
