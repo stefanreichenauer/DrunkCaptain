@@ -16,14 +16,19 @@ public class WaveGeneratorSimulator5000 : MonoBehaviour {
 
 	private BoxCollider2D spawnBox;
 
-	// Use this for initialization
-	void Start () {
-		spawnBox = GetComponent<BoxCollider2D>();
+    public GameObject gameStateObj;
+    private GameState gameState;
+
+    // Use this for initialization
+    void Start()
+    {
+        gameState = gameStateObj.GetComponent<GameState>();
+        spawnBox = GetComponent<BoxCollider2D>();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(Time.time > nextSpawn){
+		if(Time.time > nextSpawn && gameState.gameState != State.StateEnum.PREPERATION){
 			nextSpawn = Time.time + spawnSpeed;
 			GameObject wavePrefab = wavePrefabs[Random.Range(0, wavePrefabs.Count)];
 			Vector2 min = spawnBox.bounds.min;
