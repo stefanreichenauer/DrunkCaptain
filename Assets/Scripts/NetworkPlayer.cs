@@ -64,6 +64,11 @@ public class NetworkPlayer : NetworkBehaviour
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameStateComponent.gameState = State.StateEnum.FAILURE;
+        }
+
     }
 
     public void handleInputCmd(float horizontal, float vertical)

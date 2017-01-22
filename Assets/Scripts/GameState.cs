@@ -105,11 +105,11 @@ public class GameState : NetworkBehaviour
     {
         if (gameState == State.StateEnum.SUCCESS)
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("EndScene");
         }
         else if (gameState == State.StateEnum.FAILURE)
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("EndScene");
         }
 
     }

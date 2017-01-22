@@ -273,6 +273,7 @@ MonoBehaviour:
   buttons: {fileID: 1100131719}
   IPbuttons: {fileID: 1311237998}
   ipInput: {fileID: 623702617}
+  isSuccess: 0
 --- !u!4 &546404594
 Transform:
   m_ObjectHideFlags: 0
@@ -789,7 +790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1100131720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,7 +1096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1311237999
 RectTransform:
   m_ObjectHideFlags: 0

@@ -23,6 +23,8 @@ public class MenuManager : MonoBehaviour
 
     public Text ipInput;
 
+    public bool isSuccess = false;
+
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -67,7 +69,7 @@ public class MenuManager : MonoBehaviour
         //Helmsman/Client
         isCaptain = false;
         ip = ipInput.text;
-        buttons.SetActive(false);
+        IPbuttons.SetActive(false);
         SceneManager.LoadScene("NetworkView");
 
     }
