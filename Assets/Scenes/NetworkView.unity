@@ -1791,6 +1791,7 @@ MonoBehaviour:
   spawnSpeed: 0.6
   minWaveSpeed: 1
   maxWaveSpeed: 2
+  gameStateObj: {fileID: 108867385}
 --- !u!4 &1687224371
 Transform:
   m_ObjectHideFlags: 0

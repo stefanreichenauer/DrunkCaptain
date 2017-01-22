@@ -10,10 +10,10 @@ public class MenuManager : MonoBehaviour
 
     public bool isCaptain = true;
 
-    private bool choosen = false;
-    private bool client = false;
+    //private bool choosen = false;
+    //private bool client = false;
 
-    public string connectionIP = "127.0.0.1";
+    //public string connectionIP = "127.0.0.1";
     public int connectionPort = 7777;
 
     public string ip = "127.0.0.1";
