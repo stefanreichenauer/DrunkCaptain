@@ -14,6 +14,8 @@ public class Timer : MonoBehaviour {
     public GameObject gameStateObj;
     private GameState gameState;
     public GameObject helmsmansText;
+
+    public GameObject ipText;
     // Use this for initialization
     void Start () {
         gameState = gameStateObj.GetComponent<GameState>();
@@ -47,6 +49,9 @@ public class Timer : MonoBehaviour {
                 running = true;
                 current_time.gameObject.SetActive(true);
                 helmsmansText.SetActive(false);
+                if(ipText != null){
+                    ipText.SetActive(false);
+                }
             }
         }
 	}

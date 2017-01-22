@@ -46,7 +46,7 @@ public class MenuManager : MonoBehaviour
         //Captain/Server
         isCaptain = true;
         buttons.SetActive(false);
-        SceneManager.LoadScene("NetworkView");
+        SceneManager.LoadScene("NetworkView_Map2");
 
     }
     public void testP2()
@@ -76,7 +76,7 @@ public class MenuManager : MonoBehaviour
         isCaptain = false;
         ip = ipInput.text;
         IPbuttons.SetActive(false);
-        SceneManager.LoadScene("NetworkView");
+        SceneManager.LoadScene("NetworkView_Map2");
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class NetworkPlayer : NetworkBehaviour
@@ -7,6 +8,7 @@ public class NetworkPlayer : NetworkBehaviour
     public GameObject gameState;
     public GameObject helmsmanGUI;
     public GameObject captainGUI;
+    public Text ipText;
     public bool isLocalP;
 
     private GameState gameStateComponent;
@@ -25,6 +27,9 @@ public class NetworkPlayer : NetworkBehaviour
             if(helmsmanGUI)
             {
                 helmsmanGUI.gameObject.SetActive(false);
+                if(ipText != null){
+                    ipText.text = "Game ID (IP Address): " + Network.player.ipAddress;
+                }
             }
         }
         else if (isClient)
