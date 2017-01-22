@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc06227319ac1f4da08071fe00afe89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time_left: 3600
+  time_left: 10
   current_time: {fileID: 759732038}
   winText: {fileID: 835844656}
   running: 0

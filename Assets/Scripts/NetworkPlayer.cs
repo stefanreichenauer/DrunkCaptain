@@ -9,6 +9,8 @@ public class NetworkPlayer : NetworkBehaviour
     public GameObject captainGUI;
     public bool isLocalP;
 
+    private GameState gameStateComponent;
+
     public bool getIsServer()
     {
         return isServer;
@@ -37,6 +39,8 @@ public class NetworkPlayer : NetworkBehaviour
 
         if (gameState == null)
             gameState = GameObject.Find("GameState");
+
+        gameStateComponent = gameState.GetComponent<GameState>();
     }
 
 
@@ -46,11 +50,11 @@ public class NetworkPlayer : NetworkBehaviour
     {
         isLocalP = isLocalPlayer;
 
-        if(true || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        if(gameStateComponent.gameState == State.StateEnum.RUNNING)
         {
             if (isServer)
             {
-                gameState.GetComponent<GameState>().handleInput(
+                gameStateComponent.handleInput(
                     Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             }
             else
@@ -70,9 +74,9 @@ public class NetworkPlayer : NetworkBehaviour
             return;
         }
         if(horizontal != 0)
-            CmdSetDirection(Input.GetAxis("Horizontal"));
+            CmdSetDirection(horizontal);
         if(vertical != 0)
-            CmdSetSpeed(Input.GetAxis("Vertical"));
+            CmdSetSpeed(vertical);
     }
 
 
@@ -82,12 +86,12 @@ public class NetworkPlayer : NetworkBehaviour
     [Command]
     public void CmdSetSpeed(float speed)
     {
-        gameState.GetComponent<GameState>().speed = speed;
+        gameStateComponent.speed = speed;
     }
     [Command]
     public void CmdSetDirection(float direction)
     {
-        gameState.GetComponent<GameState>().direction = direction;
+        gameStateComponent.direction = direction;
     }
 
     //Cmd from Captain
@@ -98,7 +102,7 @@ public class NetworkPlayer : NetworkBehaviour
             Debug.Log("set LED called as !ServerEntity");
             return;
         }
-        gameState.GetComponent<GameState>().er_up = value;
+        gameStateComponent.er_up = value;
     }
     public void setLEDDown(bool value)
     {
@@ -107,7 +111,7 @@ public class NetworkPlayer : NetworkBehaviour
             Debug.Log("set LED called as !ServerEntity");
             return;
         }
-        gameState.GetComponent<GameState>().er_down = value;
+        gameStateComponent.er_down = value;
     }
     public void setLEDLeft(bool value)
     {
@@ -116,7 +120,7 @@ public class NetworkPlayer : NetworkBehaviour
             Debug.Log("set LED called as !ServerEntity");
             return;
         }
-        gameState.GetComponent<GameState>().er_left = value;
+        gameStateComponent.er_left = value;
     }
     public void setLEDRight(bool value)
     {
@@ -125,7 +129,7 @@ public class NetworkPlayer : NetworkBehaviour
             Debug.Log("set LED called as !ServerEntity");
             return;
         }
-        gameState.GetComponent<GameState>().er_right = value;
+        gameStateComponent.er_right = value;
     }
 
     #endregion controllGameState

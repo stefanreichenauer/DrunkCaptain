@@ -5,16 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
+    public bool isCaptain = true;
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
 	public void startGame(){
 		testP1();
 	}
 
 	public void testP1(){
-		SceneManager.LoadScene("CaptainsView");
+		SceneManager.LoadScene("NetworkView");
 	}
 	public void testP2(){
-		SceneManager.LoadScene("SteuermannView");
-	}
+        isCaptain = false;
+		SceneManager.LoadScene("NetworkView");
+        
+    }
 
 	public void quitGame(){
 		Application.Quit();

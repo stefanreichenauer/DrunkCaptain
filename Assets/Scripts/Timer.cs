@@ -23,12 +23,18 @@ public class Timer : MonoBehaviour {
 	void Update () {
         if (running)
         {
+
+            if (gameState.gameState == State.StateEnum.SUCCESS || gameState.gameState == State.StateEnum.FAILURE)
+            {
+                running = false;
+            }
             time_left -= Time.deltaTime;
 
             if (time_left <= 0f)
             {
                 current_time.gameObject.SetActive(false);
-                StartCoroutine("GameOver");
+                gameState.timeOver();
+                //   StartCoroutine("GameOver");
             }
 
             displayTime();
@@ -54,6 +60,7 @@ public class Timer : MonoBehaviour {
 
     IEnumerator GameOver()
     {
+        gameState.timeOver();
         winText.text = "Game Over";
         winText.gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);

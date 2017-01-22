@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GameState : NetworkBehaviour
 {
@@ -27,6 +28,8 @@ public class GameState : NetworkBehaviour
     public GameObject NetworkGUI;
     private NetworkManager netManager;
 
+    private bool disconnectIfNoClients = false;
+
     // Use this for initialization
     void Start()
     {
@@ -43,6 +46,19 @@ public class GameState : NetworkBehaviour
                 gameState = State.StateEnum.RUNNING;
             }
         }
+        else if (gameState == State.StateEnum.COLLISION)
+        {
+            if (last_collision + 1 < Time.time)
+            {
+                gameState = State.StateEnum.RUNNING;
+            }
+        }
+
+        if (disconnectIfNoClients)
+        {
+            netManager.StopServer();
+            loadScene();
+        }
     }
 
     public bool getIsClientConnected()
@@ -51,6 +67,52 @@ public class GameState : NetworkBehaviour
         return isClientConnected;
     }
 
+    private float last_collision = -1.0f;
+
+    public void setCollision()
+    {
+        gameState = State.StateEnum.COLLISION;
+
+        last_collision = Time.time;
+    }
+
+    public void finishReached()
+    {
+        gameState = State.StateEnum.SUCCESS;
+        disconnect();
+    }
+
+    public void timeOver()
+    {
+        gameState = State.StateEnum.FAILURE;
+        disconnect();
+    }
+
+    public void disconnect()
+    {
+        if(isServer)
+        {
+            disconnectIfNoClients = true;
+        }
+        else
+        {
+            netManager.StopClient();
+            loadScene();
+        }
+    }
+
+    public void loadScene()
+    {
+        if (gameState == State.StateEnum.SUCCESS)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        else if (gameState == State.StateEnum.FAILURE)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
+    }
 
     public void handleInput(float horizontal, float vertical)
     {

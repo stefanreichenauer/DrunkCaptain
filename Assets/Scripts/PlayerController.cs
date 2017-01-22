@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject role;
     public GameObject gameStateObject;
 
-    private GameState gameState; 
+    private GameState gameState;
+
+    private float last_collision = -1.0f;
 
     // Use this for initialization
     void Start () {
@@ -86,15 +88,24 @@ public class PlayerController : MonoBehaviour {
     {
         if (!coll.Equals(null))
         {
+            if(last_collision + 3 < Time.time && gameState.gameState == State.StateEnum.RUNNING)
+            {
+                rigid.velocity = new Vector3(0, 0, 0);
+
+                gameState.setCollision();
+
+                last_collision = Time.time;
+            }
             //shipAcceleration = 0;
-            rigid.velocity = new Vector3(0, 0, 0);
         }
     } 
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Finish"){
             winText.gameObject.SetActive(true);
-        }else if(other.tag == "Wave"){
+            gameState.finishReached();
+        }
+        else if(other.tag == "Wave"){
             other.GetComponent<Wave>().register(this.rigid);
         }
     }
